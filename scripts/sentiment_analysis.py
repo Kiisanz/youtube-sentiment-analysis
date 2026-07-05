@@ -26,7 +26,13 @@ Langkah-langkahnya meliputi:
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from pathlib import Path
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+try:
+    from scripts.comment_loader import load_comment_dataframe
+except ModuleNotFoundError:
+    from comment_loader import load_comment_dataframe
 
 """## Membaca Data dan Preprocessing
 
@@ -35,10 +41,8 @@ penentuan kolom dilakukan secara manual. Selanjutnya, dilakukan preprocessing se
 
 """
 
-data = "/content/Youtube_Comment_Gibran.xlsx"
-df = pd.read_excel(data, header=None)
-
-df.columns = ['Username', 'Komentar']
+data = Path(__file__).resolve().parents[1] / "data" / "Youtube_Comment_Gibran.xlsx"
+df = load_comment_dataframe(data)
 
 """## Analisis Sentimen dengan VADER
 Pada langkah ini, kita menggunakan VADER (Valence Aware Dictionary and sEntiment Reasoner), sebuah alat analisis sentimen berbasis lexicon dan rule-based yang khusus dirancang untuk analisis sentimen teks pendek seperti komentar media sosial.

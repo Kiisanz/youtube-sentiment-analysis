@@ -7,6 +7,7 @@ The dataset used is sourced from Kaggle and includes YouTube comments with usern
 ## Features
 
 - Reads YouTube comments from an Excel file
+- Accepts CSV comment exports with `comment`, `comments`, or Xquik-style `text` columns
 - Performs sentiment analysis with VADER (NLTK)
 - Categorizes comments into Positive, Neutral, and Negative
 - Visualizes sentiment distribution with polished bar charts
@@ -29,10 +30,11 @@ The dataset used is sourced from Kaggle and includes YouTube comments with usern
    
 ## Usage
 
-1. Prepare your Excel file with two columns:
+1. Prepare your Excel or CSV file with comment text:
 
    * Column A: Username
    * Column B: Comment text
+   * Or a headered CSV with `comment`, `comments`, or `text`
 
 2. Run the Jupyter Notebook `sentiment_analysis.ipynb` step by step.
 
@@ -52,4 +54,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Made with ❤️ by Mochamad Rifki Maulana
-
